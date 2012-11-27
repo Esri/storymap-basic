@@ -27,6 +27,37 @@ These instructions assume that you have a Web server like [Internet Information 
 2. (Optional). If your application edits features in a feature service or generates requests that exceed 2000 characters you may need to setup and use a proxy page. Common situations where you may exceed the URL length are, using complext polygons as input to a task or specifying a spatial reference using well-known text (wkt). View the [Using the proxy page](http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm) help topic for details on installing and configuring a proxy page.
 3. Test the page using the following URL: http://localhost/[template name]/index.html, where [template name] is the name of the folder where you extracted the zip contents.
 
+#### Configure the application
+
+Now let's configure the application to use a different ArcGIS Online group, title or subtitle.
+
+1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is highlighted in yellow in the image below.
+
+![findMapID](https://raw.github.com/Esri/storytelling-basic-map-template-js/master/documentation/findmapid.png)
+
+2. Open the index.html file in a text editor. You can edit this file to set the following application properties:
+    - **webmap**: unique identifier for the ArcGIS Online map.
+    - **title**: if not specified the ArcGIS.com map's title is used.
+    - **subtitle**: if not specified the ArcGIS.com web map's summary is used.
+    - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
+    - **legend**: Choose if legend is displayed with map.
+
+3. Save the file then test your [application](http://localhost/Chrome/index.html) and note that it now displays your application and if specified your custom title and subtitle.
+
+#### Personalize the application
+
+###### Add a logo to the application
+
+You can personalize your site by adding a custom logo to the application's header next to the map title.
+
+1. First copy your custom logo to the images subdirectory.
+2. Open layout.css in a text editor.
+3. Find the section of code that has an id of "logoArea" and add the following attribute.
+
+        background:url(../images/yourImage.png) top left no-repeat;
+        
+4. Run the application and the custom logo should appear to the left of the title in the application header.
+
 ## Requirements
 
 * Notepad or HTML editor
