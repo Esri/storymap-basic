@@ -31,7 +31,7 @@ These instructions assume that you have a Web server like [Internet Information 
 
 Now let's configure the application to use a different ArcGIS Online group, title or subtitle.
 
-1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: http://www.arcgis.com/home/webmap/viewer.html?webmap=*5ae9e138a17842688b0b79283a4353f6*.
+1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: http%3A%2F%2Fwww.arcgis.com%2Fhome%2Fwebmap%2Fviewer.html%3Fwebmap%3D*5ae9e138a17842688b0b79283a4353f6*.
 
 2. Open the index.html file in a text editor. You can edit this file to set the following application properties:
     - **webmap**: unique identifier for the ArcGIS Online map.
