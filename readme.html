@@ -39,12 +39,12 @@
 
 <ol>
   <li>Copy the contents of the zip file into your web server's root directory. In IIS, the default location for the web server's root folder is <code>c:\inetpub\wwwroot</code>. </li>
- <li>(Optional). If your application edits features in a feature service or generates requests that exceed 2000 characters you may need to 
+ <li>(Optional). If your application edits features in a feature service or generates requests that exceed 2000 characters you may need to
 setup and use a proxy page. Common situations where you may exceed the URL length are, using complext polygons as input to a task or
 specifying a spatial reference using well-known text (wkt).
 View the <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm">Using the proxy page</a> help topic for details on installing and configuring a proxy page.</li>
  <li>
- Test the page using the following URL: http://localhost/[template name]/index.html, where [template name] is the name of the folder where you extracted the zip contents. 
+ Test the page using the following URL: http://localhost/[template name]/index.html, where [template name] is the name of the folder where you extracted the zip contents.
  </li>
 </ol>
 <a href="#top">Top</a>
@@ -57,10 +57,10 @@ View the <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jshelp
     <li>Open the index.html file in a text editor. You can edit this file to set the following application properties:
 <ul>
   <li><b>webmap: </b>unique identifier for the ArcGIS.com map.</li>
-  <li><b>title: </b>if not specified the ArcGIS.com map's title is used</li> 
-  <li><b>subTitle: </b>if not specified the ArcGIS.com web map's summary is used</li>  
-  <li><b>bingMapsKey: </b>if the map uses data from Bing Maps, enter your Bing Maps Key</li>  
- 
+  <li><b>title: </b>if not specified the ArcGIS.com map's title is used</li>
+  <li><b>subTitle: </b>if not specified the ArcGIS.com web map's summary is used</li>
+  <li><b>bingMapsKey: </b>if the map uses data from Bing Maps, enter your Bing Maps Key</li>
+
 </ul></li><br />
  <li>To modify the map, replace the string for webmap with your map's id.</li>
 <pre>
@@ -84,7 +84,7 @@ subtitle = "<span class="selector">This is a custom subtitle</span>";
         <a href="#top">Top</a>
 <a name="options"></a>
 <h4 class="heading">Specify Map Options</h4>
-<p>When creating a new map you can specify optional parameters that define various map options like whether pan arrows or a slider are displayed, if popups defined in ArcGIS.com display and if the map supports 
+<p>When creating a new map you can specify optional parameters that define various map options like whether pan arrows or a slider are displayed, if popups defined in ArcGIS.com display and if the map supports
 continous pan across the dateline. View the API reference for the <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jsapi_start.htm#jsapi/map.htm">Map</a> class for more details.  Note: continous pan across the dateline is only supported if the map's spatial reference is WGS84 or Web Mercator. </p><p>To change the map options in your application open the layout.js file
 search for mapOptions then add or remove map options. In this example, we turn off the map slider, display the pan arrows and enable support for continous pan across the dateline.
 <pre>
@@ -99,7 +99,7 @@ search for mapOptions then add or remove map options. In this example, we turn o
 <a href="#top">Top</a>
 <a name="personalize"></a>
 <h3  class="heading">Personalize the application</h3>
-<p>In this section, you'll see how to personalize the application by adding a logo, moving the sidebar and modifying the sidebar content. 
+<p>In this section, you'll see how to personalize the application by adding a logo, moving the sidebar and modifying the sidebar content.
 </p>
 <a href="#top">Top</a>
 <a name="logo"></a>
@@ -156,7 +156,7 @@ mapOptions: {
   slider: true,
   nav: <span class="selector">false</span>
 </pre> </li>
-<li>Next find the section of code that sets the <code>map</code> to <code>response.map</code> and paste the code in red beneath that line. This code checks to see if the map is loaded, if it is it runs a function that adds the overview map to the application. 
+<li>Next find the section of code that sets the <code>map</code> to <code>response.map</code> and paste the code in red beneath that line. This code checks to see if the map is loaded, if it is it runs a function that adds the overview map to the application.
 <pre>
 map = response.map;
 <span class="selector">
@@ -170,7 +170,7 @@ else{
 if (bingMapsKey) {
 </pre>
 </li>
-<li>Now add the <code>addOverviewMap</code> function to the very bottom of the layout.js file. 
+<li>Now add the <code>addOverviewMap</code> function to the very bottom of the layout.js file.
 <pre>
 function addOverviewMap() {
   var overviewMapDijit = new esri.dijit.OverviewMap({

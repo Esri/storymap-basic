@@ -13,3 +13,4 @@
 {"ts":1354042452670,"patch":[[{"diffs":[[0,")\n\n#####"],[-1,"#"],[0," Install"]],"start1":1091,"start2":1091,"length1":17,"length2":16}]],"length":3667,"saved":false}
 {"ts":1354042482929,"patch":[[{"diffs":[[0,"s.\n\n"],[-1,"[Instructions](#instructions)\n\n"],[0,"## R"]],"start1":2349,"start2":2349,"length1":39,"length2":8}]],"length":3636,"saved":false}
 {"contributors":[],"silentsave":true,"ts":1354043251130,"patch":[[{"diffs":[[0,"ri/s"],[-1,"witch-basemaps-js/master/switch-basemaps"],[1,"torytelling-basic-map-template-js/master/images/storytelling-basic-map-template"],[0,"-js."]],"start1":690,"start2":690,"length1":48,"length2":87}]],"length":3675,"saved":false}
+{"ts":1354043516977,"patch":[[{"diffs":[[0,"n)\n\n####"],[-1,"#"],[0," Install"]],"start1":1129,"start2":1129,"length1":17,"length2":16}]],"length":3674,"saved":false}

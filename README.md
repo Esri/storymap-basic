@@ -19,7 +19,7 @@ This template is part of the ArcGIS Online template gallery. These templates can
 2. [Configure the application](#configure-the-application)
 3. [Personalize the application](#personalize-the-application)
 
-##### Install the web application
+#### Install the web application
 
 These instructions assume that you have a Web server like [Internet Information Services(IIS)](http://www.iis.net/) installed and setup on your machine. If you are using another Web server the general installation steps will be the same but you will need to check your Web server's documentation for specific information on deploying and testing the application.
 
