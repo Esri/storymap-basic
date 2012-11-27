@@ -87,12 +87,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/switch-basemaps-js/master/license.txt) file.
-
-
-
-    - **webmap**: unique identifier for the ArcGIS Online map.
-    - **title**: if not specified the ArcGIS.com map's title is used.
-    - **subtitle**: if not specified the ArcGIS.com web map's summary is used.
-    - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
-    - **legend**: Choose if legend is displayed with map.
+A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/storytelling-basic-map-template-js/master/license.txt) file.
