@@ -31,9 +31,7 @@ These instructions assume that you have a Web server like [Internet Information 
 
 Now let's configure the application to use a different ArcGIS Online group, title or subtitle.
 
-1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is highlighted in yellow in the image below.
-
-![findMapID](https://raw.github.com/Esri/storytelling-basic-map-template-js/master/documentation/findmapid.png)
+1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: http://www.arcgis.com/home/webmap/viewer.html?webmap=*5ae9e138a17842688b0b79283a4353f6*.
 
 2. Open the index.html file in a text editor. You can edit this file to set the following application properties:
     - **webmap**: unique identifier for the ArcGIS Online map.
@@ -47,8 +45,6 @@ Now let's configure the application to use a different ArcGIS Online group, titl
 
 #### Personalize the application
 
-###### Add a logo to the application
-
 You can personalize your site by adding a custom logo to the application's header next to the map title.
 
 1. First copy your custom logo to the images subdirectory.
@@ -56,7 +52,7 @@ You can personalize your site by adding a custom logo to the application's heade
 3. Find the section of code that has an id of "logoArea" and add the following attribute.
 
         background:url(../images/yourImage.png) top left no-repeat;
-        
+
 4. Run the application and the custom logo should appear to the left of the title in the application header.
 
 ## Requirements
