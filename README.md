@@ -6,7 +6,7 @@ This template is part of the ArcGIS Online template gallery. These templates can
 
 [View live app here](http://storymaps.esri.com/templates/basic/)
 
-![App](https://raw.github.com/Esri/switch-basemaps-js/master/switch-basemaps-js.png)
+![App](https://raw.github.com/Esri/storytelling-basic-map-template-js/master/images/storytelling-basic-map-template-js.png)
 
 ## Features
 * A simple map viewer for an ArcGIS Online webmap.
