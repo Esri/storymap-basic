@@ -40,6 +40,9 @@ Now let's configure the application to use a different ArcGIS Online group, titl
     - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
     - **legend**: Choose if legend is displayed with map.
 
+
+return
+
 3. Save the file then test your application and note that it now displays your application and if specified your custom title and subtitle.
 
 #### Personalize the application
