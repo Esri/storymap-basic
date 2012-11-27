@@ -75,3 +75,4 @@
 {"ts":1354044237004,"patch":[[{"diffs":[[0,"title.\n\n"],[-1,"\n"],[0,"### Pers"]],"start1":3665,"start2":3665,"length1":17,"length2":16}]],"length":5508,"saved":false}
 {"ts":1354044239204,"patch":[[{"diffs":[[0,"cation\n\n"],[-1,"\n"],[0,"###### A"]],"start1":3698,"start2":3698,"length1":17,"length2":16}]],"length":5507,"saved":false}
 {"ts":1354044241621,"patch":[[{"diffs":[[0,"le.\n\n###"],[1,"#"],[0," Persona"]],"start1":3668,"start2":3668,"length1":16,"length2":17}]],"length":5508,"saved":false}
+{"ts":1354044310005,"patch":[[{"diffs":[[0,"h map.\n\n"],[1,"\n"],[0,"3. Save "]],"start1":3486,"start2":3486,"length1":16,"length2":17}]],"length":5509,"saved":false}
