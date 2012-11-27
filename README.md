@@ -37,7 +37,7 @@ Now let's configure the application to use a different ArcGIS Online group, titl
     - **title**: if not specified the ArcGIS.com map's title is used.
     - **subtitle**: if not specified the ArcGIS.com web map's summary is used.
     - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
-    - **legend**: Choose if legend is displayed with map.
+    - **legend**: Choose if legend is displayed with map.  
 
 
 
