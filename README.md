@@ -31,7 +31,7 @@ These instructions assume that you have a Web server like [Internet Information 
 
 Now let's configure the application to use a different ArcGIS Online group, title or subtitle.
 
-1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: arcgis.com/home/webmap/viewer.html?webmap= **5ae9e138a17842688b0b79283a4353f6** .
+1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: arcgis.com/home/webmap/viewer.html?webmap= **5ae9e138a17842688b0b79283a4353f6**.
 
 2. Open the index.html file in a text editor. You can edit this file to set the following application properties:
     - **webmap**: unique identifier for the ArcGIS Online map.
@@ -40,8 +40,7 @@ Now let's configure the application to use a different ArcGIS Online group, titl
     - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
     - **legend**: Choose if legend is displayed with map.
 
-
-3. Save the file then test your [application](http://localhost/Chrome/index.html) and note that it now displays your application and if specified your custom title and subtitle.
+3. Save the file then test your application and note that it now displays your application and if specified your custom title and subtitle.
 
 #### Personalize the application
 
