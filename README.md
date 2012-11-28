@@ -52,6 +52,8 @@ You can personalize your site by adding a custom logo to the application's heade
 
 4. Run the application and the custom logo should appear to the left of the title in the application header.
 
+[New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
+
 ## Requirements
 
 * Notepad or HTML editor
