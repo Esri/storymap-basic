@@ -1,12 +1,11 @@
-# storytelling-basic-map-template-js
-
+# basic-map-storytelling-template-js
 A storytelling template for publishing an ArcGIS webmap to a general audience. The template lets the map do most of the talking: its simple design features map, title, sub-title, and retractable legend.
 
 This template is part of the ArcGIS Online template gallery. These templates can be accessed from the ArcGIS Online's map viewer Share window or from the Web Application Templates group. When accessed from the map viewer the templates can be published as a hosted application or you can download the template ZIP file to install on your web server.
 
 [View live app here](http://storymaps.esri.com/templates/basic/)
 
-![App](https://raw.github.com/Esri/storytelling-basic-map-template-js/master/images/storytelling-basic-map-template-js.png)
+![App](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/images/storytelling-basic-map-template-js.png)
 
 ## Features
 * A simple map viewer for an ArcGIS Online webmap.
@@ -89,4 +88,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/storytelling-basic-map-template-js/master/license.txt) file.
+A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/license.txt) file.
