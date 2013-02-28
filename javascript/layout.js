@@ -257,6 +257,6 @@
 		else{
 		  $("#legTogText").html(i18n.viewer.legToggle.down);
 		}
-		$("#legendDiv").slideToggle();
+		$("#legendDiv").stop(true,true).slideToggle();
 	  });
     });
