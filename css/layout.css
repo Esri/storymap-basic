@@ -134,7 +134,7 @@
 
 	  #legendDiv{
 	  display:none;
-	  background:#dadada;
+	  background:#fff;
 	  max-height:450px;
 	  overflow:auto;
 	  padding:10px;
@@ -165,6 +165,10 @@
 
 	  g,v {
 	  cursor:pointer;
+	  }
+
+	  .maximize{
+	  	display:none;
 	  }
 
 	  #loadingCon{
