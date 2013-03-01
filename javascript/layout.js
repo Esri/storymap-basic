@@ -72,9 +72,37 @@
          configOptions.bingmapskey = urlObject.query.bingMapsKey;
        }
 
-       if (configOptions.legend === "false" || configOptions.legend === false){
-    	   $("#legendCon").hide();
-	   }
+       //is an appid specified - if so read json from there
+      if(configOptions.appid || (urlObject.query && urlObject.query.appid)){
+    var appid = configOptions.appid || urlObject.query.appid;
+    var requestHandle = esri.request({
+      url: configOptions.sharingurl + "/" + appid + "/data",
+      content: {f:"json"},
+      callbackParamName:"callback",
+      load: function(response){
+               if(response.values.webmap !== undefined){configOptions.webmap = response.values.webmap;}
+         if(response.values.title !== undefined){configOptions.title = response.values.title;}
+         if(response.values.subtitle !== undefined){configOptions.subtitle = response.values.subtitle;}
+         if(response.values.legend !== undefined){configOptions.legend = response.values.legend;}
+
+         createMap();
+      },
+      error: function(response){
+      var e = response.message;
+       alert(i18n.viewer.errors.createMap +  response.message);
+      }
+    });
+     }else{
+      createMap();
+     }
+
+   }
+
+   function createMap(){
+
+    if (configOptions.legend === "false" || configOptions.legend === false){
+         $("#legendCon").hide();
+     }
 
 	   var mapDeferred = esri.arcgis.utils.createMap(configOptions.webmap, "map", {
          mapOptions: {
