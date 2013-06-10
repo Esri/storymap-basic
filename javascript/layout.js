@@ -7,6 +7,8 @@ dojo.require("esri.arcgis.utils");
 
 var map;
 var configOptions;
+var urlObject;
+var embed;
 
 function initMap(options) {
 configOptions = options;
@@ -28,6 +30,14 @@ if (configOptions.i18n.isRightToLeft) {
 
 dojo.byId('loading').innerHTML = configOptions.i18n.viewer.loading.message;
 dojo.byId('legTogText').innerHTML = configOptions.i18n.viewer.legToggle.down;
+
+urlObject = esri.urlToObject(document.location.href);
+urlObject.query = urlObject.query || {};
+
+if(urlObject.query.embed){
+  embed = urlObject.query.embed;
+}
+
 createMap();
 
 }
@@ -36,6 +46,11 @@ function createMap() {
 
 if (configOptions.legend === "false" || configOptions.legend === false) {
   $("#legendCon").hide();
+}
+if(embed === "true" || $("#mainWindow").width() < 768 && embed != "false"){
+  $("#header").hide();
+  $("#legendDiv").css("max-height",200);
+  dijit.byId("mainWindow").layout();
 }
 
 var mapDeferred = esri.arcgis.utils.createMap(configOptions.webmap, "map", {
