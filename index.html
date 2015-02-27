@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title></title>
     <meta http-equiv="X-UA-Compatible" content="IE=9, IE=10">
-    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.11/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.13/esri/css/esri.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css">
 
    <script type="text/javascript">
@@ -19,22 +19,22 @@
         },
         {
           name:"utilities",
-          location: path_location + "/javascript" 
+          location: path_location + "/javascript"
         },
         {
          name: "templateConfig",
-          location: path_location 
+          location: path_location
         }
       ]
     };
   </script>
-    <script type="text/javascript" src="//js.arcgis.com/3.11/"></script>
+    <script type="text/javascript" src="//js.arcgis.com/3.13/"></script>
     <script type="text/javascript" src="javascript/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="javascript/layout.js"></script>
     <script type="text/javascript">
 
 
-  
+
     function init(){
      dojo.require("utilities.app");
      dojo.require("templateConfig.commonConfig");
@@ -55,11 +55,11 @@
         proxyurl:"",
         //Modify this to point to your sharing service URL if you are using the portal
         sharingurl :"",
-        //add default template options. This includes the bing key, sharing url, proxy url, 
-        //and any service urls (geometry, geocode, print) 
+        //add default template options. This includes the bing key, sharing url, proxy url,
+        //and any service urls (geometry, geocode, print)
         //that may be needed by the template.
         bingmapskey: commonConfig.bingMapsKey,
-        helperServices:commonConfig.helperServices 
+        helperServices:commonConfig.helperServices
       };
       var app = new utilities.App(defaults);
       app.init().then(function(options){
