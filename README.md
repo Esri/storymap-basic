@@ -90,5 +90,5 @@ limitations under the License.
 
 A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/license.txt) file.
 
-[](Esri Tags: ArcGIS-Online Template Storytelling)
+[](Esri Tags: Template Storytelling)
 [](Esri Language: JavaScript)
