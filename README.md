@@ -1,80 +1,77 @@
-# basic-map-storytelling-template-js
-A storytelling template for publishing an ArcGIS webmap to a general audience. The template lets the map do most of the talking: its simple design features map, title, sub-title, and retractable legend.
+# Story Map Basic
 
-This template is part of the ArcGIS Online template gallery. These templates can be accessed from the ArcGIS Online's map viewer Share window or from the Web Application Templates group. When accessed from the map viewer the templates can be published as a hosted application or you can download the template ZIP file to install on your web server.
+The Story Map Basic app is a simple map viewer with a minimalist user interface. Apart from the title bar and an optional legend, the map fills the screen. Use this app to let your map speak for itself. Your users can click features on the map to get more information in pop-ups.
 
-[View live app here](http://storymaps.esri.com/templates/basic/)
+[View live app here](http://links.esri.com/storymaps/story_map_basic_overview_1)
 
-![App](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/images/storytelling-basic-map-template-js.png)
+![App](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/images/storytelling-basic-map-template-js.png) |
+[Download](http://links.esri.com/storymaps/story_map_basic_zip)
 
-## Features
-* A simple map viewer for an ArcGIS Online webmap.
-* Includes a banner section to display a title and subtitle.
-* Retractable legend.
+This application is part of the ArcGIS Online and can be accessed from the ArcGIS Online's map viewer Share window. 
+This repository provides the application source code for developers that want to customize the application.
+
+For more information, including a gallery of examples and a step-by-step tutorial, please see the [Map basic](http://storymaps.arcgis.com/en/app-list/basic/) page on the [Esri Story Maps website](http://storymaps.arcgis.com/).
 
 ## Instructions
+First create your Map Basic in ArcGIS Online using the [step-by-step tutorial](http://storymaps.arcgis.com/en/app-list/basic/tutorial/).
+Once your story is ready, you have to find its ID in ArcGIS Online. The ID is a 32 character string that you will find in your web browser's address bar when you are viewing your series.
 
-1. [Install the web applciation](#install-the-web-application)
-2. [Configure the application](#configure-the-application)
-3. [Personalize the application](#personalize-the-application)
+![App ID](map-basic-help-application-id.png)
 
-#### Install the web application
+1. [Download the application](http://links.esri.com/storymaps/map_series_template_zip)
+2. Deploy the application on your webserver. See [FAQ](#how-to-deploy-the-application-on-a-web-server) for details
+3. Edit `config\defaults.js`, find the `appid` property on line 21 and paste in your application ID
+4. Navigate to index.html (e.g., `http://127.0.0.1/MapBasic/index.html`)
 
-These instructions assume that you have a Web server like [Internet Information Services(IIS)](http://www.iis.net/) installed and setup on your machine. If you are using another Web server the general installation steps will be the same but you will need to check your Web server's documentation for specific information on deploying and testing the application.
+Enjoy!
+You can continue to use the configuration interface in ArcGIS Online to modify your story.
 
-1. Copy the contents of the zip file into your web server's root directory. In IIS, the default location for the web server's root folder is `c:\inetpub\wwwroot`
-2. (Optional). If your application edits features in a feature service or generates requests that exceed 2000 characters you may need to setup and use a proxy page. Common situations where you may exceed the URL length are, using complext polygons as input to a task or specifying a spatial reference using well-known text (wkt). View the [Using the proxy page](http://help.arcgis.com/en/webapi/javascript/arcgis/jshelp/#ags_proxy) help topic for details on installing and configuring a proxy page.
-3. Test the page using the following URL: http://localhost/[template name]/index.html, where [template name] is the name of the folder where you extracted the zip contents.
+*If you are using Portal for ArcGIS, please edit `config\defaults.js` > `sharinghost` at line 63 to configure the application. For exemple if you Portal is accessible at `acme.com/gis/`, the value should be `"sharinghost": location.protocol + "//" + "acme.com/gis/"`
+Optionally you can also [configure the application](#can-the-template-be-used-offline) to use the ArcGIS API for JavaScript included on your Portal.*
 
-#### Configure the application
+Alternatively, the application can be configured with a webmap id instead of an application id (see `config\defaults.js` > `webmap` on line 22. 
+In that case, the configuration all the configuration has to be done through through `config\defaults.js`.
 
-Now let's configure the application to use a different ArcGIS Online group, title or subtitle.
+## Feedback / support
+We would love to hear from you!
+* [StoryMaps Website](http://storymaps.arcgis.com/)
+* [Let us know about your application](http://storymaps.arcgis.com/en/gallery/submission-form/)
+* [Story Maps forum on GeoNet](http://links.esri.com/storymaps/story_maps_geonet)
+* [@EsriStoryMaps](http://twitter.com/EsriStoryMaps)
+* [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 
-1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: arcgis.com/home/webmap/viewer.html?webmap= **5ae9e138a17842688b0b79283a4353f6**.
-2. Open the index.html file in a text editor. You can edit this file to set the following application properties:
-    - **webmap**: unique identifier for the ArcGIS Online map.
-    - **title**: if not specified the ArcGIS.com map's title is used.
-    - **subtitle**: if not specified the ArcGIS.com webmap's summary is used.
-    - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
-    - **legend**: Choose if legend is displayed with map.
-3. Save the file then test your application and note that it now displays your application and if specified your custom title and subtitle.
+When you contact us, don't hesitate to include a link to your application to make it easier for us to understand what you are working on.
 
-#### Personalize the application
+## FAQ
 
-You can personalize your site by adding a custom logo to the application's header next to the map title.
+### What are the supported browsers?
+The application is supported on Internet Explorer 9 and above, Chrome, Firefox, Safari and the most recent tablet and smartphone devices.
 
-1. First copy your custom logo to the images subdirectory.
-2. Open layout.css in a text editor.
-3. Find the section of code that has an id of "logoArea" and add the following attribute.
+### Can I use the template without ArcGIS Online or Portal for ArcGIS?
+Yes, by setting `app/templatesConfig.js` > `useLocalWebmap` to `true`, the application will load the local definition of a webmap defined stored in `demoMap.js`. 
+To modify this file, and add your own layer, see the [web map specification](http://resources.arcgis.com/en/help/arcgis-web-map-json/) or inspect the network request when loading a map.
 
-        background:url(../images/yourImage.png) top left no-repeat;
+### Can the template be used offline?
+Yes, by using Portal for ArcGIS and configuring the template to use the ArcGIS API for Javascript included with the Portal. 
 
-4. Run the application and the custom logo should appear to the left of the title in the application header.
+Change all references to the ArcGIS API for JavaScript in index.html to refer to your local copy of the API. 
+Search for the references containing "//js.arcgis.com/3.15" and replace this portion of the reference with the url to your local install.
+For example: "//acme.com/gis/jsapi/jsapi" where `gis` is the name of your Web Adaptor.
 
-[New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
 
 ## Requirements
-
 * Notepad or HTML editor
-* A little background with HTML/CSS/Javascript
-* Experience with the [ArcGIS Javascript API](http://links.esri.com/javascript) would help.
-
-## Resources
-
-* [ArcGIS for JavaScript API Resource Center](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html)
-* [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
-* [Esri Storytelling with Maps](http://storymaps.esri.com)
+* Some background with HTML/CSS/Javascript
+* Experience with the [ArcGIS Javascript API](http://links.esri.com/javascript) is helpful
 
 ## Issues
-
 Find a bug or want to request a new feature?  Please let us know by submitting an issue.
 
 ## Contributing
-
-Anyone and everyone is welcome to contribute.
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Licensing
-Copyright 2012 Esri
+Copyright 2013 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -88,7 +85,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/license.txt) file.
+A copy of the license is available in the repository's [LICENSE.txt](LICENSE.txt) file.
 
 [](Esri Tags: Template Storytelling)
 [](Esri Language: JavaScript)
