@@ -4,7 +4,7 @@ The Story Map Basic app is a simple map viewer with a minimalist user interface.
 
 [View live app here](http://links.esri.com/storymaps/story_map_basic_overview_1)
 
-![App](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/images/storytelling-basic-map-template-js.png) |
+![App](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/storytelling-map-basic-template-js.png) |
 [Download](http://links.esri.com/storymaps/story_map_basic_zip)
 
 This application is part of the ArcGIS Online and can be accessed from the ArcGIS Online's map viewer Share window. 
@@ -16,7 +16,7 @@ For more information, including a gallery of examples and a step-by-step tutoria
 First create your Map Basic in ArcGIS Online using the [step-by-step tutorial](http://storymaps.arcgis.com/en/app-list/basic/tutorial/).
 Once your story is ready, you have to find its ID in ArcGIS Online. The ID is a 32 character string that you will find in your web browser's address bar when you are viewing your series.
 
-![App ID](map-basic-help-application-id.png)
+![App ID](storytelling-map-basic-help-application-id.png)
 
 1. [Download the application](http://links.esri.com/storymaps/map_series_template_zip)
 2. Deploy the application on your webserver. See [FAQ](#how-to-deploy-the-application-on-a-web-server) for details
