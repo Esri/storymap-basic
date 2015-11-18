@@ -25,7 +25,7 @@ Enjoy!
 You can continue to use the configuration interface in ArcGIS Online to modify your story.
 
 *If you are using Portal for ArcGIS, you have to configure `config\defaults.js` > `sharinghost` line 63. For example if you Portal is accessible at `acme.com/gis/`, the value should be `"sharinghost": location.protocol + "//" + "acme.com/gis/"`
-Optionally you can also [configure the application](#can-the-template-be-used-offline) to use the ArcGIS API for JavaScript included on your Portal.*
+Optionally you can also [configure the application](#can-the-application-be-used-offline) to use the ArcGIS API for JavaScript included on your Portal.*
 
 Alternatively, the application can be configured with a webmap id instead of an application id (see `config\defaults.js` > `webmap` on line 22. 
 In that scenario, all the configuration has to be done through through `config\defaults.js`.
@@ -45,18 +45,18 @@ When you contact us, don't hesitate to include a link to your application to mak
 ### What are the supported browsers?
 The application is supported on Internet Explorer 9 and above, Chrome, Firefox, Safari and the most recent tablet and smartphone devices.
 
-### Can I use the template without ArcGIS Online or Portal for ArcGIS?
+### Can the application be used without ArcGIS Online or Portal for ArcGIS?
 Yes, by setting `app/templatesConfig.js` > `useLocalWebmap` to `true`, the application will load the local definition of a webmap defined stored in `demoMap.js`. 
 To modify this file, and add your own layer, see the [web map specification](http://resources.arcgis.com/en/help/arcgis-web-map-json/) or inspect the network request when loading a map.
 
-### Can the template be used offline?
-Yes, by using Portal for ArcGIS and configuring the template to use the ArcGIS API for Javascript included with the Portal. 
+### Can the application be used offline?
+Yes, by using Portal for ArcGIS and configuring the application to use the ArcGIS API for Javascript included with the Portal. 
 
 Change all references to the ArcGIS API for JavaScript in index.html to refer to your local copy of the API. 
 Search for the references containing `//js.arcgis.com/3.15` and replace this portion of the reference with the url to your local install.
 For example: `//acme.com/gis/jsapi/jsapi` where `gis` is the name of your Web Adaptor.
 
-#### How to deploy the application on a web server?
+### How to deploy the application on a web server?
 If you are not familiar with web servers here is three solutions:
  * Use a free hosting service like [Dropbox](https://www.dropbox.com), you may have to [configure Dropbox to enable webpage hosting](https://www.dropbox.com/enable_public_folder)
  * Use the web server that comes with your server Operating System. On Windows this is Internet Information Services (IIS), if you have a `C:\inetpub\wwwroot` folder on your computer, you should be able to access it's content using `http://localhost`
