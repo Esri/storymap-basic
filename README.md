@@ -9,6 +9,7 @@ This application is part of the ArcGIS Online and can be accessed from the ArcGI
 This repository provides the application source code for developers that want to customize the application.
 
 For more information, including a gallery of examples and a step-by-step tutorial, please see the [Story Map Basic](http://storymaps.arcgis.com/en/app-list/basic/) page on the [Esri Story Maps website](http://storymaps.arcgis.com/).
+This application is based on the [Viewer configurable application template](https://github.com/Esri/Viewer).
 
 ## Instructions
 First create your Story Map Basic in ArcGIS Online using the [step-by-step tutorial](http://storymaps.arcgis.com/en/app-list/basic/tutorial/).
