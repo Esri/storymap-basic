@@ -2,18 +2,16 @@
 
 The Story Map Basic app is a simple map viewer with a minimalist user interface. Apart from the title bar and an optional legend, the map fills the screen. Use this app to let your map speak for itself. Your users can click features on the map to get more information in pop-ups.
 
-[View live app here](http://links.esri.com/storymaps/story_map_basic_overview_1)
-
 ![App](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/storytelling-map-basic-template-js.png) |
-[Download](http://links.esri.com/storymaps/story_map_basic_zip)
+[View it live](http://links.esri.com/storymaps/story_map_basic_overview_1) | [Download](http://links.esri.com/storymaps/story_map_basic_zip)
 
 This application is part of the ArcGIS Online and can be accessed from the ArcGIS Online's map viewer Share window. 
 This repository provides the application source code for developers that want to customize the application.
 
-For more information, including a gallery of examples and a step-by-step tutorial, please see the [Map basic](http://storymaps.arcgis.com/en/app-list/basic/) page on the [Esri Story Maps website](http://storymaps.arcgis.com/).
+For more information, including a gallery of examples and a step-by-step tutorial, please see the [Story Map Basic](http://storymaps.arcgis.com/en/app-list/basic/) page on the [Esri Story Maps website](http://storymaps.arcgis.com/).
 
 ## Instructions
-First create your Map Basic in ArcGIS Online using the [step-by-step tutorial](http://storymaps.arcgis.com/en/app-list/basic/tutorial/).
+First create your Story Map Basic in ArcGIS Online using the [step-by-step tutorial](http://storymaps.arcgis.com/en/app-list/basic/tutorial/).
 Once your story is ready, you have to find its ID in ArcGIS Online. The ID is a 32 character string that you will find in your web browser's address bar when you are viewing your series.
 
 ![App ID](storytelling-map-basic-help-application-id.png)
@@ -26,11 +24,11 @@ Once your story is ready, you have to find its ID in ArcGIS Online. The ID is a 
 Enjoy!
 You can continue to use the configuration interface in ArcGIS Online to modify your story.
 
-*If you are using Portal for ArcGIS, please edit `config\defaults.js` > `sharinghost` at line 63 to configure the application. For exemple if you Portal is accessible at `acme.com/gis/`, the value should be `"sharinghost": location.protocol + "//" + "acme.com/gis/"`
+*If you are using Portal for ArcGIS, you have to configure `config\defaults.js` > `sharinghost` line 63. For example if you Portal is accessible at `acme.com/gis/`, the value should be `"sharinghost": location.protocol + "//" + "acme.com/gis/"`
 Optionally you can also [configure the application](#can-the-template-be-used-offline) to use the ArcGIS API for JavaScript included on your Portal.*
 
 Alternatively, the application can be configured with a webmap id instead of an application id (see `config\defaults.js` > `webmap` on line 22. 
-In that case, the configuration all the configuration has to be done through through `config\defaults.js`.
+In that scenario, all the configuration has to be done through through `config\defaults.js`.
 
 ## Feedback / support
 We would love to hear from you!
@@ -55,8 +53,8 @@ To modify this file, and add your own layer, see the [web map specification](htt
 Yes, by using Portal for ArcGIS and configuring the template to use the ArcGIS API for Javascript included with the Portal. 
 
 Change all references to the ArcGIS API for JavaScript in index.html to refer to your local copy of the API. 
-Search for the references containing "//js.arcgis.com/3.15" and replace this portion of the reference with the url to your local install.
-For example: "//acme.com/gis/jsapi/jsapi" where `gis` is the name of your Web Adaptor.
+Search for the references containing `//js.arcgis.com/3.15` and replace this portion of the reference with the url to your local install.
+For example: `//acme.com/gis/jsapi/jsapi` where `gis` is the name of your Web Adaptor.
 
 
 ## Requirements
