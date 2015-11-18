@@ -16,7 +16,7 @@ Once your story is ready, you have to find its ID in ArcGIS Online. The ID is a 
 
 ![App ID](storytelling-map-basic-help-application-id.png)
 
-1. [Download the application](http://links.esri.com/storymaps/map_series_template_zip)
+1. [Download the application](http://links.esri.com/storymaps/story_map_basic_zip)
 2. Deploy the application on your webserver. See [FAQ](#how-to-deploy-the-application-on-a-web-server) for details
 3. Edit `config\defaults.js`, find the `appid` property on line 21 and paste in your application ID
 4. Navigate to index.html (e.g., `http://127.0.0.1/MapBasic/index.html`)
@@ -56,6 +56,16 @@ Change all references to the ArcGIS API for JavaScript in index.html to refer to
 Search for the references containing `//js.arcgis.com/3.15` and replace this portion of the reference with the url to your local install.
 For example: `//acme.com/gis/jsapi/jsapi` where `gis` is the name of your Web Adaptor.
 
+#### How to deploy the application on a web server?
+If you are not familiar with web servers here is three solutions:
+ * Use a free hosting service like [Dropbox](https://www.dropbox.com), you may have to [configure Dropbox to enable webpage hosting](https://www.dropbox.com/enable_public_folder)
+ * Use the web server that comes with your server Operating System. On Windows this is Internet Information Services (IIS), if you have a `C:\inetpub\wwwroot` folder on your computer, you should be able to access it's content using `http://localhost`
+ * On Windows or Mac OS, use a simple web server like [Mongoose](https://code.google.com/p/mongoose/) (not recommended for production)
+
+If you are experiencing some rendering issues like improper symbol appearing instead of icons, you will have an extra configuration to perform. Some servers require to configure a new mime type to be able to serve Map Journal fonts correctly. See the following links for more information:
+
+ * [IIS Mime types](http://codingstill.com/2013/01/set-mime-types-for-web-fonts-in-iis/)
+ * [Properly serve webfonts](http://blog.symbolset.com/properly-serve-webfonts)
 
 ## Requirements
 * Notepad or HTML editor
