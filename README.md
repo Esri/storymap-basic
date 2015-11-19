@@ -2,8 +2,8 @@
 
 The Story Map Basic app is a simple map viewer with a minimalist user interface. Apart from the title bar and an optional legend, the map fills the screen. Use this app to let your map speak for itself. Your users can click features on the map to get more information in pop-ups.
 
-![App](https://raw.github.com/Esri/basic-map-storytelling-template-js/master/storytelling-map-basic-template-js.png)
-[View it live](http://links.esri.com/storymaps/story_map_basic_overview_1) | [Download](http://links.esri.com/storymaps/story_map_basic_zip)
+![App](https://cloud.githubusercontent.com/assets/3215530/11279809/b61c2446-8ec0-11e5-8b7d-3f1783763516.jpg)
+[View it live](http://links.esri.com/storymaps/story_map_basic_overview_3) | [Download](http://links.esri.com/storymaps/story_map_basic_zip)
 
 This application is part of the ArcGIS Online and can be accessed from the ArcGIS Online's map viewer Share window. 
 This repository provides the application source code for developers that want to customize the application.
