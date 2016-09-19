@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "맵을 생성할 수 없음",
-      generalError: "오류"
-    },
-    legendToggle:{
-        label: "맵 범례"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "맵을 생성할 수 없음",
+    "generalError": "오류"
+  },
+  "social": {
+    "facebook": "Facebook에  공유",
+    "twitter": "Twitter에 공유",
+    "link": "링크 공유"
+  },
+  "legendToggle": {
+    "label": "범례"
+  }
+});

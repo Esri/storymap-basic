@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "Nevar izveidot karti",
-      generalError: "Kļūda"
-    },
-    legendToggle:{
-        label: "KARTES LEĢENDA"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "Nevar izveidot karti",
+    "generalError": "Kļūda"
+  },
+  "social": {
+    "facebook": "Koplietot Facebook",
+    "twitter": "Koplietot Twitter",
+    "link": "Koplietot saiti"
+  },
+  "legendToggle": {
+    "label": "LEĢENDA"
+  }
+});

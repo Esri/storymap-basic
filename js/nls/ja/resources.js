@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "マップを作成できません",
-      generalError: "エラー"
-    },
-    legendToggle:{
-        label: "マップの凡例"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "マップを作成できません",
+    "generalError": "エラー"
+  },
+  "social": {
+    "facebook": "Facebook で共有",
+    "twitter": "Twitter で共有",
+    "link": "リンクの共有"
+  },
+  "legendToggle": {
+    "label": "凡例"
+  }
+});

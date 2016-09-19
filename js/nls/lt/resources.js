@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "Žemėlapio sukurti nepavyko",
-      generalError: "Klaida"
-    },
-    legendToggle:{
-        label: "ŽEMĖLAPIO LEGENDA"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "Žemėlapio sukurti nepavyko",
+    "generalError": "Klaida"
+  },
+  "social": {
+    "facebook": "Dalintis Facebook",
+    "twitter": "Dalintis Twitter",
+    "link": "Bendrinti nuorodą"
+  },
+  "legendToggle": {
+    "label": "LEGENDA"
+  }
+});

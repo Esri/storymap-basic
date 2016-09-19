@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "Nelze vytvořit mapu",
-      generalError: "Chyba"
-    },
-    legendToggle:{
-        label: "LEGENDA MAPY"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "Nelze vytvořit mapu",
+    "generalError": "Chyba"
+  },
+  "social": {
+    "facebook": "Sdílet na Facebooku",
+    "twitter": "Sdílet na Twitteru",
+    "link": "Sdílet odkaz"
+  },
+  "legendToggle": {
+    "label": "LEGENDA"
+  }
+});

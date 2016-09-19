@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "Δεν είναι δυνατή η δημιουργία χάρτη",
-      generalError: "Σφάλμα"
-    },
-    legendToggle:{
-        label: "ΥΠΟΜΝΗΜΑ ΧΑΡΤΗ"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "Δεν είναι δυνατή η δημιουργία χάρτη",
+    "generalError": "Σφάλμα"
+  },
+  "social": {
+    "facebook": "Κοινοποίηση στο Facebook",
+    "twitter": "Κοινοποίηση στο Twitter",
+    "link": "Κοινοποίηση συνδέσμου"
+  },
+  "legendToggle": {
+    "label": "ΥΠΟΜΝΗΜΑ"
+  }
+});

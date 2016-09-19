@@ -16,15 +16,15 @@
  */
 define({
   "map": {
-    "error": "Không thể tạo bản đồ",
-    "generalError": "Lỗi"
+    "error": "Kreiranje mape nije moguće",
+    "generalError": "Greška"
   },
   "social": {
-    "facebook": "Chia sẻ trên Facebook",
-    "twitter": "Chia sẻ trên Twitter",
-    "link": "Chia sẻ liên kết"
+    "facebook": "Podelite na mreži Facebook",
+    "twitter": "Podelite na mreži Twitter",
+    "link": "Podelite vezu"
   },
   "legendToggle": {
-    "label": "CHÚ GIẢI"
+    "label": "LEGENDA"
   }
 });

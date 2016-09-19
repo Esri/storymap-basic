@@ -9,6 +9,7 @@ body{
   font-size: 14px;
   overflow: hidden;
 }
+
 /*Header Fonts*/
 @font-face {
   font-family: 'open_sanssemibold';
@@ -76,59 +77,22 @@ body{
 #search{
   position: absolute;
   top:120px;
-  left:20px;
+  left:16px;
   z-index: 40;
 }
-.arcgisSearch .searchGroup .searchInput {
-  width: 200px;
-  padding: 6px 17px 6px 18px;
-  zoom: 1;
- }
 
- .arcgisSearch .searchCollapsed .searchSubmit{
-
-  border-radius: 0;
- }
- .arcgisSearch .searchBtn{
-  padding:6px 5px;
- }
-.arcgisSearch .searchExpandContainer .searchBtn{
-  padding:6px 12px;
-}
-.HomeButton {
-  border-bottom: 1px solid #57585a;
-  width: 30px;
-  height: 30px;
-}
-.HomeButton .home {
-  background-color: #6c6d70;
-  background: url("../images/home_locate.png") no-repeat 0 0;
-}
-.HomeButton .home {
-  padding: 0px !important;
-  width: 30px;
-  height: 30px;
-}
-
-.HomeButton .home:hover {
-  background-color: #eee;
-  width: 30px;
-  height: 30px;
-  padding: 0px;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
 .esriSimpleSlider{
   border-radius: 2px !important;
 }
-
+.calcite .esriSimpleSlider .esriSimpleSliderDecrementButton, .calcite .esriSimpleSlider .esriSimpleSliderDecrementButton:hover, .calcite .esriSimpleSlider .esriSimpleSliderDecrementButton:focus{
+  border-top:solid 1px #efefef;
+}
 /*Header styles (title, logo, subtitle, social links)*/
 #header{
   margin:0;
   overflow: hidden;
 }
 #headerText{
-  font-family: "open_sanssemibold", sans-serif;
   padding-top:10px;
   padding-left:16px;
   width:70%;
@@ -139,6 +103,7 @@ body{
   padding-right:25px;
 }
 #title{
+  font-family: "open_sanssemibold", sans-serif;
   height:45px;
   padding-left:4px;
   padding-top:3px;
@@ -157,6 +122,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, ul, form {
     margin: 0;
 }
 #subtitle{
+  font-family: "open_sansregular",sans-serif;
   padding-left:4px;
   line-height: 18px;
   word-wrap:break-word;
@@ -165,6 +131,9 @@ html, body, h1, h2, h3, h4, h5, h6, p, ul, form {
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto !important;
+}
+#subtitle b, strong {
+  font-family: 'open_sanssemibold', sans-serif;
 }
 @media (max-width: 600px){
   .socialArea{
@@ -205,6 +174,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, ul, form {
   height:60px;
   float:right;
   margin-top:5px;
+  width:100%;
 }
 .logoWrapper{
   height:50px;
@@ -290,9 +260,14 @@ img{
 #legendDiv{
   font-family: "open_sansregular", sans-serif;
   background: #fff;
-  max-height: 300px;
+  max-height: 410px;
   overflow: auto;
   padding:10px;
+}
+@media only screen and (max-device-width:480px){
+  #legendDiv{
+    max-height:300px;
+  }
 }
 #legendToggle{
   position: relative;
@@ -324,9 +299,6 @@ img{
 
 .esriRTL label {
   /*Example of a rule that will be applied if the app is viewed in a browser with a RTL locale like Hebrew or Arabic.*/
-}
-.esriPopup .pointer.bottom{
-  background:#f7f7f7 !important;
 }
 .loading-indicator {
   /* Loading status */
@@ -363,4 +335,20 @@ img{
   top: 40%;
   left: 0;
   text-align: center;
+}
+.calcite .esriPopup .header{
+  font-size: 12px;
+}
+.calcite .esriPopup a{
+  padding:0;
+}
+.calcite .esriPopup .actionsPane .actionList a {
+    color:#6e6e6e;
+    padding:10px 8px;
+}
+.calcite .esriPopup .actionsPane .actionList a:hover {
+  color:#323232;
+}
+.calcite .esriPopup .titlePane .title{
+  font-size: 12px;
 }

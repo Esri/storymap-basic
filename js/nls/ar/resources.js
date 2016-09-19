@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "يتعذر إنشاء الخريطة",
-      generalError: "خطأ"
-    },
-    legendToggle:{
-        label: "وسيلة إيضاح الخريطة"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "يتعذر إنشاء الخريطة",
+    "generalError": "خطأ"
+  },
+  "social": {
+    "facebook": "مشاركة على الفيس بوك",
+    "twitter": "مشاركة على تويتر",
+    "link": "مشاركة الرابط"
+  },
+  "legendToggle": {
+    "label": "وسيلة إيضاح"
+  }
+});

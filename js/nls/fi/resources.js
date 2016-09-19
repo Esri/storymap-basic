@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "Karttaa ei voi luoda",
-      generalError: "Virhe"
-    },
-    legendToggle:{
-        label: "KARTAN SELITE"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "Karttaa ei voi luoda",
+    "generalError": "Virhe"
+  },
+  "social": {
+    "facebook": "Jaa Facebookissa",
+    "twitter": "Jaa Twitterissä",
+    "link": "Jaa linkki"
+  },
+  "legendToggle": {
+    "label": "SELITE"
+  }
+});

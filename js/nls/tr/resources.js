@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "Harita oluşturulamıyor",
-      generalError: "Hata"
-    },
-    legendToggle:{
-        label: "HARİTA GÖSTERİMİ"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "Harita oluşturulamıyor",
+    "generalError": "Hata"
+  },
+  "social": {
+    "facebook": "Facebook'ta Paylaş",
+    "twitter": "Twitter'da Paylaş",
+    "link": "Bağlantıyı paylaş"
+  },
+  "legendToggle": {
+    "label": "GÖSTERİM"
+  }
+});

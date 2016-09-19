@@ -1,4 +1,4 @@
-﻿/*global define */
+/*global define */
 /*
  | Copyright 2014 Esri
  |
@@ -14,14 +14,17 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-define(
-   ({
-    map: {
-      error: "Impossible de créer la carte",
-      generalError: "Erreur"
-    },
-    legendToggle:{
-        label: "LEGENDE DE LA CARTE"
-    }
-  })
-);
+define({
+  "map": {
+    "error": "Impossible de créer la carte",
+    "generalError": "Erreur"
+  },
+  "social": {
+    "facebook": "Partager sur Facebook",
+    "twitter": "Partager sur Twitter",
+    "link": "Partager le lien"
+  },
+  "legendToggle": {
+    "label": "LEGENDE"
+  }
+});

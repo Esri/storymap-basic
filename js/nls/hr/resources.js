@@ -16,15 +16,15 @@
  */
 define({
   "map": {
-    "error": "Không thể tạo bản đồ",
-    "generalError": "Lỗi"
+    "error": "Nije moguće stvoriti kartu",
+    "generalError": "Pogreška"
   },
   "social": {
-    "facebook": "Chia sẻ trên Facebook",
-    "twitter": "Chia sẻ trên Twitter",
-    "link": "Chia sẻ liên kết"
+    "facebook": "Podijeli na Facebooku",
+    "twitter": "Podijeli na Twitteru",
+    "link": "Podijeli poveznicu"
   },
   "legendToggle": {
-    "label": "CHÚ GIẢI"
+    "label": "LEGENDA"
   }
 });

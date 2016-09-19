@@ -18,6 +18,7 @@
 define([
   "dojo/_base/declare",
   "dojo/_base/lang",
+  "dojo/_base/kernel",
 
   "dojo/Deferred",
   "dojo/query",
@@ -27,6 +28,7 @@ define([
   "dojo/fx",
 
   "dojo/dom",
+  "dojo/dom-attr",
   "dojo/dom-class",
   "dojo/dom-construct",
   "dojo/dom-style",
@@ -35,48 +37,94 @@ define([
 
   "esri/arcgis/utils",
   "esri/domUtils",
+  "esri/lang",
 
   "esri/dijit/HomeButton",
 
+  "application/MapUrlParams",
+
   "dojo/domReady!"
-], function (
-  declare, lang,
+], function(
+  declare, lang, kernel,
   Deferred,
   query, on,
   Toggler, coreFx,
-  dom, domClass, domConstruct, domStyle,
+  dom, domAttr, domClass, domConstruct, domStyle,
   registry,
-  arcgisUtils, 
-  domUtils, 
-  HomeButton
+  arcgisUtils,
+  domUtils,
+  esriLang,
+  HomeButton,
+  MapUrlParams
 ) {
   return declare(null, {
     config: {},
-    startup: function (config) {
+    startup: function(config) {
+      // Set lang attribute to current locale
+      document.documentElement.lang = kernel.locale;
+
       var promise;
       // config will contain application and user defined info for the template such as i18n strings, the web map id
       // and application id
       // any url parameters and any application specific configuration information.
       if (config) {
         this.config = config;
-        // Hide legend container if not enabled
-        dom.byId("legTogText").innerHTML = this.config.i18n.legendToggle.label;
-        if(!this.config.legend){
-          domUtils.hide(dom.byId("legendCon"));
-        }
-        // Hide header if embed is specified 
-        if(this.config.embed || this.config.headerHeight == "0"){
-          domUtils.hide(dom.byId("header"));
-          registry.byId("mainWindow").layout();
-        }else{
-          // Set header height 
-          domStyle.set(dom.byId("header"), "height", this.config.headerHeight + "px");
-          registry.byId("mainWindow").layout();
+        if (this.config.sharedThemeConfig && this.config.sharedThemeConfig.attributes && this.config.sharedThemeConfig.attributes.theme) {
+          var sharedTheme = this.config.sharedThemeConfig.attributes;
+          this.config.logo = sharedTheme.layout.header.component.settings.logoUrl || sharedTheme.theme.logo.small || null;
+          if (this.config.logo !== null) {
+            this.config.logoLink = null;
+          }
+          this.config.background = sharedTheme.theme.body.bg;
+          this.config.color = sharedTheme.theme.text.color;
+          this.config.legendTitleBackground = sharedTheme.theme.brand.primary;
+          this.config.subtitleColor = sharedTheme.theme.brand.secondary;
         }
 
+        // Create and add custom style sheet
+        if (this.config.customstyle) {
+          var style = document.createElement("style");
+          style.appendChild(document.createTextNode(this.config.customstyle));
+          document.head.appendChild(style);
+        }
+
+        // Hide legend container if not enabled
+        dom.byId("legTogText").innerHTML = this.config.i18n.legendToggle.label;
+        if (!this.config.legend) {
+          domUtils.hide(dom.byId("legendCon"));
+        }
+        // Hide header if embed is specified
+        if (this.config.embed || this.config.headerHeight == "0") {
+          domUtils.hide(dom.byId("header"));
+        } else {
+          // Set header height
+          domStyle.set(dom.byId("header"), "height", this.config.headerHeight + "px");
+          // update title area height to be a percentage of the new header height
+          if (parseInt(this.config.headerHeight, 10) > 58) {
+            domStyle.set("subtitle", "height", this.config.headerHeight - 58 + "px");
+          } else {
+            domStyle.set("subtitle", "height", "auto");
+          }
+
+        }
         //supply either the webmap id or, if available, the item info
         var itemInfo = this.config.itemInfo || this.config.webmap;
-        promise = this._createWebMap(itemInfo);
+        var mapParams = new MapUrlParams({
+          center: this.config.center || null,
+          extent: this.config.extent || null,
+          level: this.config.level || null,
+          marker: this.config.marker || null,
+          mapSpatialReference: itemInfo.itemData.spatialReference,
+          defaultMarkerSymbol: this.config.markerSymbol,
+          defaultMarkerSymbolWidth: this.config.markerSymbolWidth,
+          defaultMarkerSymbolHeight: this.config.markerSymbolHeight,
+          geometryService: this.config.helperServices.geometry.url
+        });
+        mapParams.processUrlParams().then(lang.hitch(this, function(urlParams) {
+          this._createWebMap(itemInfo, urlParams);
+        }), lang.hitch(this, function(error) {
+          this.reportError(error);
+        }));
       } else {
         var error = new Error("Main:: Config is not defined");
         this.reportError(error);
@@ -86,7 +134,7 @@ define([
       }
       return promise;
     },
-    reportError: function (error) {
+    reportError: function(error) {
       // remove loading class from body
       domClass.remove(document.body, "app-loading");
       domClass.add(document.body, "app-error");
@@ -107,170 +155,189 @@ define([
     },
 
     // create a map based on the input web map id
-    _createWebMap: function (itemInfo) {
-      // set extent from config/url
-      itemInfo = this._setExtent(itemInfo);
-      // Optionally define additional map config here for example you can
-      // turn the slider off, display info windows, disable wraparound 180, slider position and more.
-      var mapOptions = {};
-      // set zoom level from config/url
-      mapOptions = this._setLevel(mapOptions);
-      // set map center from config/url
-      mapOptions = this._setCenter(mapOptions);
+    _createWebMap: function(itemInfo, params) {
+
       // create webmap from item
       return arcgisUtils.createMap(itemInfo, "mapDiv", {
-        mapOptions: mapOptions,
+        mapOptions: params.mapOptions,
         usePopupManager: true,
         layerMixins: this.config.layerMixins || [],
         editable: this.config.editable,
         bingMapsKey: this.config.bingKey
-      }).then(lang.hitch(this, function (response) {
+      }).then(lang.hitch(this, function(response) {
 
         this.map = response.map;
+        if (params.markerGraphic) {
+          // Add a marker graphic with an optional info window if
+          // one was specified via the marker url parameter
+          require(["esri/layers/GraphicsLayer"], lang.hitch(this, function(GraphicsLayer) {
+            var markerLayer = new GraphicsLayer();
+
+            this.map.addLayer(markerLayer);
+            markerLayer.add(params.markerGraphic);
+
+            if (params.markerGraphic.infoTemplate) {
+              this.map.infoWindow.setFeatures([params.markerGraphic]);
+              this.map.infoWindow.show(params.markerGraphic.geometry);
+            }
+          }));
+
+        }
         // remove loading class from body
         domClass.remove(document.body, "app-loading");
         this._updateTheme();
 
-        // Set default title and sub title 
+        // Set default title and sub title
         this.config.title = this.config.title || response.itemInfo.item.title || "";
         this.config.subtitle = this.config.subtitle || response.itemInfo.item.snippet || "";
 
         document.title = this.config.title;
-        if(this.config.showTitle){
-         dom.byId("title").innerHTML = this.config.title;
+        if (this.config.showTitle) {
+          dom.byId("title").innerHTML = this.config.title;
         }
-        if(this.config.showSubTitle){
+        if (this.config.showSubTitle) {
           dom.byId("subtitle").innerHTML = this.config.subtitle;
         }
-        // Add the logo 
-        if(this.config.showLogo && this.config.logo ){
-          if(this.config.logoLink){
+        // Add the logo
+        if (this.config.showLogo && this.config.logo) {
+          if (this.config.logoLink) {
             dom.byId("logoLink").href = this.config.logoLink;
           }
           dom.byId("logoImg").src = this.config.logo;
         }
         // Add the social media text to the header
-        if(this.config.showSocialText && this.config.socialText){
-          domConstruct.create("a",{
+        if (this.config.showSocialText && this.config.socialText) {
+          domConstruct.create("a", {
             href: this.config.socialLink || "#",
-            target : "_blank",
+            target: "_blank",
             innerHTML: this.config.socialText
-          },"linkContainer", "first");       
+          }, "linkContainer", "first");
         }
         // Show social icons
-        if(this.config.showSocialIcons){
+        if (this.config.showSocialIcons) {
+          domAttr.set("facebook", "title", this.config.i18n.social.facebook);
+          domAttr.set("twitter", "title", this.config.i18n.social.twitter);
+          domAttr.set("link", "title", this.config.i18n.social.link);
+
           query(".shareIcon").style("display", "inline-block");
           // Setup click events for sharing nodes
-          require(["application/Share"],lang.hitch(this, function(Share){
+          require(["application/Share"], lang.hitch(this, function(Share) {
             var share = new Share({
               config: this.config,
               map: this.map,
               title: this.config.title,
               summary: this.config.subtitle
             });
-            query(".shareIcon").on("click", lang.hitch(this, function(node){
+            query(".shareIcon").on("click", lang.hitch(this, function(node) {
               share.shareLink(node);
             }));
           }));
         }
 
-        // Add scalebar 
-        if(this.config.scalebar){
-          require(["esri/dijit/Scalebar"], lang.hitch(this, function(Scalebar){
+        // Add scalebar
+        if (this.config.scalebar) {
+          require(["esri/dijit/Scalebar"], lang.hitch(this, function(Scalebar) {
             var scalebar = new Scalebar({
               map: this.map,
               scalebarUnit: this.config.units
             });
           }));
         }
-        // Add Home Button to zoom slider 
+        // Add Home Button to zoom slider
         var homeButton = new HomeButton({
           map: this.map
-        },domConstruct.create("div",{},query(".esriSimpleSliderIncrementButton")[0],"after"));
+        }, domConstruct.create("div", {}, query(".esriSimpleSliderIncrementButton")[0], "after"));
         homeButton.startup();
 
-        // Add legend 
-        if(this.config.legend){
-          require(["esri/dijit/Legend"], lang.hitch(this, function(Legend){
+        // Add legend
+        if (this.config.legend) {
+          domUtils.hide(dom.byId("legendDiv"));
+          require(["esri/dijit/Legend"], lang.hitch(this, function(Legend) {
             var layerInfo = arcgisUtils.getLegendLayers(response);
-            if(layerInfo.length === 0){
+            if (layerInfo.length === 0) {
               // hide the legend
               domUtils.hide(dom.byId("legendCon"));
-            }else{
+            } else {
+
+              // Toggle legend display
+              var toggler = new Toggler({
+                node: "legendDiv",
+                showFunc: coreFx.wipeIn,
+                hideFunc: coreFx.wipeOut
+              });
+
+              on(dom.byId("legendToggle"), "click", lang.hitch(this, function() {
+                var displayMode = domStyle.get(dom.byId("legendDiv"), "display");
+                if (displayMode === "none") {
+                  domClass.remove("legToggleIcon", "icon-down");
+                  domClass.add("legToggleIcon", "icon-up");
+                  toggler.show();
+                } else {
+                  domClass.add("legToggleIcon", "icon-down");
+                  domClass.remove("legToggleIcon", "icon-up");
+                  toggler.hide();
+                }
+              }));
+
               var legend = new Legend({
                 map: this.map,
                 layerInfos: layerInfo
-              },"legendDiv");
+              }, "legendDiv");
               legend.startup();
+              if (this.config.legendOpen) {
+                dom.byId("legendToggle").click();
+              }
             }
           }));
-          // Toggle legend display 
-          var toggler = new Toggler({
-            node:"legendDiv",
-            showFunc: coreFx.wipeIn,
-            hideFunc: coreFx.wipeOut
-          });
-          toggler.hide();
-          on(dom.byId("legendToggle"), "click", lang.hitch(this, function(){
-            var displayMode = domStyle.get(dom.byId("legendDiv"),"display");
-            if(displayMode === "none"){
-              domClass.remove("legToggleIcon","icon-down");
-              domClass.add("legToggleIcon", "icon-up");
-              toggler.show();
-            }else{
-              domClass.add("legToggleIcon","icon-down");
-              domClass.remove("legToggleIcon", "icon-up");
-              toggler.hide();
-            }
-          }));
+
         }
 
-        // Add search 
-        if(this.config.search){
-          require(["esri/dijit/Search", "esri/tasks/locator", "application/SearchSources"], lang.hitch(this, function(Search, Locator, SearchSources){
-             var searchOptions = {
-                  map: this.map,
-                  useMapExtent: this.config.searchExtent,
-                  itemData: response.itemInfo.itemData
-             };
-             if(this.config.searchConfig){  
+        // Add search
+        if (this.config.search) {
+          require(["esri/dijit/Search", "esri/tasks/locator", "application/SearchSources"], lang.hitch(this, function(Search, Locator, SearchSources) {
+            var searchOptions = {
+              map: this.map,
+              useMapExtent: this.config.searchExtent,
+              itemData: response.itemInfo.itemData
+            };
+            if (this.config.searchConfig) {
               searchOptions.applicationConfiguredSources = this.config.searchConfig.sources || [];
-             }else if(this.config.searchLayers){
+            } else if (this.config.searchLayers) {
               var configuredSearchLayers = (this.config.searchLayers instanceof Array) ? this.config.searchLayers : JSON.parse(this.config.searchLayers);
               searchOptions.configuredSearchLayers = configuredSearchLayers;
               searchOptions.geocoders = this.config.locationSearch ? this.config.helperServices.geocode : [];
-             }
-              var searchSources = new SearchSources(searchOptions);
-              var createdOptions = searchSources.createOptions();
-          
-              if(this.config.searchConfig && this.config.searchConfig.activeSourceIndex){
-                  createdOptions.activeSourceIndex = this.config.searchConfig.activeSourceIndex;
-              }
-              createdOptions.enableButtonMode = true;
-              var search = new Search(createdOptions, domConstruct.create("div"));
+            }
+            var searchSources = new SearchSources(searchOptions);
+            var createdOptions = searchSources.createOptions();
 
-              search.startup();
+            if (this.config.searchConfig && this.config.searchConfig.activeSourceIndex) {
+              createdOptions.activeSourceIndex = this.config.searchConfig.activeSourceIndex;
+            }
+            createdOptions.enableButtonMode = true;
+            var search = new Search(createdOptions, domConstruct.create("div"));
 
-              if (search && search.domNode) {
-                  domConstruct.place(search.domNode, "search");
-              }
+            search.startup();
+
+            if (search && search.domNode) {
+              domConstruct.place(search.domNode, "search");
+            }
 
           }));
         }
-
+        registry.byId("mainWindow").layout();
         // return for promise
         return response;
-        // map has been created. You can start using it.
-        // If you need map to be loaded, listen for it's load event.
+      // map has been created. You can start using it.
+      // If you need map to be loaded, listen for it's load event.
       }), this.reportError);
     },
-    _updateTheme: function(){
-      // update app theme 
+    _updateTheme: function() {
+      // update app theme
       query(".fg").style("color", this.config.color.toString());
       // Alt color (subtitle, social logo)
       query(".ac").style("color", this.config.subtitleColor.toString());
       query(".bg").style("backgroundColor", this.config.background.toString());
-      query(".esriPopup .pointer").style("backgroundColor", this.config.background.toString());
+      //query(".esriPopup .pointer").style("backgroundColor", this.config.background.toString());
       query(".esriPopup .titlePane").style({
         "backgroundColor": this.config.background.toString(),
         "color": this.config.color.toString()
@@ -279,38 +346,6 @@ define([
       query(".lbg").style({
         "backgroundColor": this.config.legendTitleBackground.toString()
       });
-    },  
-    _setLevel: function (options) {
-      var level = this.config.level;
-      //specify center and zoom if provided as url params 
-      if (level) {
-        options.zoom = level;
-      }
-      return options;
-    },
-
-    _setCenter: function (options) {
-      var center = this.config.center;
-      if (center) {
-        var points = center.split(",");
-        if (points && points.length === 2) {
-          options.center = [parseFloat(points[0]), parseFloat(points[1])];
-        }
-      }
-      return options;
-    },
-
-    _setExtent: function (info) {
-      var e = this.config.extent;
-      //If a custom extent is set as a url parameter handle that before creating the map
-      if (e) {
-        var extArray = e.split(",");
-        var extLength = extArray.length;
-        if (extLength === 4) {
-          info.item.extent = [[parseFloat(extArray[0]), parseFloat(extArray[1])], [parseFloat(extArray[2]), parseFloat(extArray[3])]];
-        }
-      }
-      return info;
     }
   });
 });
