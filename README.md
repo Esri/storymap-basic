@@ -60,7 +60,7 @@ For example: `//acme.com/gis/jsapi/jsapi` where `gis` is the name of your Web Ad
 
 ### How to deploy the application on a web server?
 If you are not familiar with web servers here is three solutions:
- * Use a free hosting service like [Dropbox](https://www.dropbox.com), you may have to [configure Dropbox to enable webpage hosting](https://www.dropbox.com/enable_public_folder)
+ * Use a free hosting service like [Surge](https://surge.sh/), View our blog post: [Host Your Story Maps for Free with Surge](https://developerscorner.storymaps.arcgis.com/host-your-story-maps-for-free-with-surge-8bddcc4cd580#.6hti19kg1)
  * Use the web server that comes with your server Operating System. On Windows this is Internet Information Services (IIS), if you have a `C:\inetpub\wwwroot` folder on your computer, you should be able to access it's content using `http://localhost`
  * On Windows or Mac OS, use a simple web server like [Mongoose](https://code.google.com/p/mongoose/) (not recommended for production)
 
