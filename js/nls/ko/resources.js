@@ -20,7 +20,7 @@ define({
     "generalError": "오류"
   },
   "social": {
-    "facebook": "Facebook에  공유",
+    "facebook": "Facebook에 공유",
     "twitter": "Twitter에 공유",
     "link": "링크 공유"
   },

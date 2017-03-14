@@ -16,15 +16,15 @@
  */
 define({
   "map": {
-    "error": "يتعذر إنشاء الخريطة",
-    "generalError": "خطأ"
+    "error": "Tidak dapat membuat peta",
+    "generalError": "Kesalahan"
   },
   "social": {
-    "facebook": "مشاركة على Facebook",
-    "twitter": "مشاركة على Twitter",
-    "link": "مشاركة الرابط"
+    "facebook": "Bagikan ke Facebook",
+    "twitter": "Bagikan ke Twitter",
+    "link": "Bagikan tautan"
   },
   "legendToggle": {
-    "label": "وسيلة إيضاح"
+    "label": "LEGENDA"
   }
 });

@@ -79,6 +79,7 @@ define([
       this.config = defaults;
       // Gets parameters from the URL, convert them to an object and remove HTML tags.
       this.urlObject = this._createUrlParamsObject();
+      this.config.urlValues = this.urlObject;
     },
     startup: function() {
       var promise = this._init();

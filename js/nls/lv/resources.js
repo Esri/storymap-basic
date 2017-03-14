@@ -25,6 +25,6 @@ define({
     "link": "Koplietot saiti"
   },
   "legendToggle": {
-    "label": "LEĢENDA"
+    "label": "APZĪMĒJUMI"
   }
 });

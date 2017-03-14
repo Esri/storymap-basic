@@ -16,15 +16,15 @@
  */
 define({
   "map": {
-    "error": "يتعذر إنشاء الخريطة",
-    "generalError": "خطأ"
+    "error": "मानचित्र बनाने में अक्षम",
+    "generalError": "त्रुटि"
   },
   "social": {
-    "facebook": "مشاركة على Facebook",
-    "twitter": "مشاركة على Twitter",
-    "link": "مشاركة الرابط"
+    "facebook": "Facebook पर साझा करें",
+    "twitter": "Twitter पर साझा करें",
+    "link": "लिंक साझा करें"
   },
   "legendToggle": {
-    "label": "وسيلة إيضاح"
+    "label": "लीजेंड"
   }
 });

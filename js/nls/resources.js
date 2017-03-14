@@ -20,25 +20,29 @@ define({
       error: "Unable to create map",
       generalError: "Error"
     },
-    social:{
-        facebook: "Share on Facebook",
-        twitter: "Share on Twitter",
-        link: "Share link"
+    social: {
+      facebook: "Share on Facebook",
+      twitter: "Share on Twitter",
+      link: "Share link"
     },
-    legendToggle:{
-        label: "LEGEND"
+    legendToggle: {
+      label: "LEGEND"
     }
   }),
   "ar": 1,
+  "bs": 1,
   "cs": 1,
   "da": 1,
   "de": 1,
+  "el": 1,
   "es": 1,
   "et": 1,
   "fi": 1,
   "fr": 1,
   "he": 1,
-  "hr": 1, 
+  "hi": 1,
+  "hr": 1,
+  "id": 1,
   "it": 1,
   "ja": 1,
   "ko": 1,
