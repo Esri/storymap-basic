@@ -41,7 +41,7 @@ define({
   "subtitle": null,
   "showLogo": true,
   "logoLink": "http://www.esri.com",
-  "logo": "./images/esri-logo.png",
+  "logo": "./images/esrilogo.png",
   "showSocialIcons": true,
   "showSocialText": true,
   "socialLink": "http://storymaps.arcgis.com",
