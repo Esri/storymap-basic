@@ -26,8 +26,8 @@
   />
   <meta property="og:image" content="http://www.arcgis.com/apps/OnePane/storytelling_basic/images/esriGlobeLogow.png" />
 
-  <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/themes/calcite/dijit/calcite.css">
-  <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/themes/calcite/esri/esri.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/themes/calcite/dijit/calcite.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/themes/calcite/esri/esri.css">
   <!-- Load any application specific styles -->
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -36,7 +36,7 @@
   <div class="loading-indicator">
     <div class="loading-message" id="loading_message"></div>
   </div>
-  <div id="mainWindow" dojotype="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false" style="height:width:100%;height:100%;">
+  <div id="mainWindow" dojotype="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false" style="height:100%;width:100%;">
     <!-- Header Section-->
     <div id="header" class="bg fg" aria-hidden="true" dojotype="dijit/layout/ContentPane" data-dojo-props="region:'top'">
       <div id="headerText">
@@ -76,8 +76,12 @@
     </div>
   </div>
   <script type="text/javascript">
+    var webgl = location.search.match(/webgl=([\w-]+)/) ? (RegExp.$1).toLowerCase() === "false" ? 0 : 1 : 1;
     var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
     var dojoConfig = {
+      has: {
+        "esri-featurelayer-webgl": webgl
+      },
       async: true,
       parseOnLoad: true,
       // The locationPath logic below may look confusing but all its doing is
@@ -98,7 +102,7 @@
       dojoConfig.locale = RegExp.$1;
     }
   </script>
-  <script type="text/javascript" src="https://js.arcgis.com/3.23/"></script>
+  <script type="text/javascript" src="https://js.arcgis.com/3.24/"></script>
   <script type="text/javascript">
     require([
       "config/templateConfig",
