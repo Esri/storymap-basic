@@ -5,7 +5,8 @@ body {
   height: 100%;
   width: 100%;
 }
-body{
+
+body {
   font-size: 14px;
   overflow: hidden;
 }
@@ -21,6 +22,7 @@ body{
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'open_sansregular';
   src: url('../font/OpenSans-Regular-webfont.eot');
@@ -31,11 +33,12 @@ body{
   font-weight: normal;
   font-style: normal;
 }
+
 /*Icon Fonts*/
 @font-face {
   font-family: 'social';
-  src:url('../font/social.eot?89188943');
-  src:url('../font/social.eot?89188943#iefix') format('embedded-opentype'),
+  src: url('../font/social.eot?89188943');
+  src: url('../font/social.eot?89188943#iefix') format('embedded-opentype'),
     url('../font/social.ttf?89188943') format('truetype'),
     url('../font/social.woff?89188943') format('woff'),
     url('../font/social.svg?89188943#icomoon') format('svg');
@@ -43,7 +46,8 @@ body{
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   font-family: 'social';
   speak: none;
   font-style: normal;
@@ -60,145 +64,185 @@ body{
 .icon-twitter:before {
   content: "\e801";
 }
+
 .icon-facebook:before {
   content: "\e800";
 }
+
 .icon-link:before {
   content: "\e802";
 }
+
 .icon-down:before {
   content: "\e804";
 }
+
 .icon-up:before {
   content: "\e803";
 }
 
 /*Esri widget style updates*/
-#search{
+#search {
   position: absolute;
-  top:120px;
-  left:16px;
+  top: 120px;
+  left: 16px;
   z-index: 40;
 }
 
-.esriSimpleSlider{
+.esriSimpleSlider {
   border-radius: 2px !important;
 }
-.calcite .esriSimpleSlider .esriSimpleSliderDecrementButton, .calcite .esriSimpleSlider .esriSimpleSliderDecrementButton:hover, .calcite .esriSimpleSlider .esriSimpleSliderDecrementButton:focus{
-  border-top:solid 1px #efefef;
+
+.calcite .esriSimpleSlider .esriSimpleSliderDecrementButton,
+.calcite .esriSimpleSlider .esriSimpleSliderDecrementButton:hover,
+.calcite .esriSimpleSlider .esriSimpleSliderDecrementButton:focus {
+  border-top: solid 1px #efefef;
 }
+
 /*Header styles (title, logo, subtitle, social links)*/
-#header{
-  margin:0;
+#header {
+  margin: 0;
   overflow: hidden;
 }
-#headerText{
-  padding-top:10px;
-  padding-left:16px;
-  width:70%;
-  float:left;
+
+#headerText {
+  padding-top: 10px;
+  padding-left: 16px;
+  width: 70%;
+  float: left;
 }
-.esriRTL #headerText{
-  float:right;
-  padding-right:25px;
+
+.esriRTL #headerText {
+  float: right;
+  padding-right: 25px;
 }
-#title{
+
+#title {
   font-family: "open_sanssemibold", sans-serif;
-  height:45px;
-  padding-left:4px;
-  padding-top:3px;
+  height: 45px;
+  padding-left: 4px;
+  padding-top: 3px;
   font-size: 24px;
   font-weight: 400;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis;
-  -o-text-overflow:ellipsis;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }
-.esriRTL #title{
+
+.esriRTL #title {
   text-align: right;
 }
-html, body, h1, h2, h3, h4, h5, h6, p, ul, form {
-    margin: 0;
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+form {
+  margin: 0;
 }
-#subtitle{
-  font-family: "open_sansregular",sans-serif;
-  padding-left:4px;
+
+#subtitle {
+  font-family: "open_sansregular", sans-serif;
+  padding-left: 4px;
   line-height: 18px;
-  word-wrap:break-word;
-  height:54px;
+  word-wrap: break-word;
+  height: 54px;
   font-size: 13px;
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto !important;
 }
-#subtitle b, strong {
+
+#subtitle b,
+strong {
   font-family: 'open_sanssemibold', sans-serif;
 }
-@media (max-width: 600px){
-  .socialArea{
+
+@media (max-width: 600px) {
+  .socialArea {
     visibility: hidden;
   }
 }
-.esriRTL .socialArea{
-  right:auto;
-  left:0;
+
+.esriRTL .socialArea {
+  right: auto;
+  left: 0;
   text-align: left;
   padding-right: 0;
-  padding-left:20px;
+  padding-left: 20px;
 }
-.socialArea{
+
+.socialArea {
   position: absolute;
-  right:0;
-  top:0;
-  padding-top:22px;
-  padding-right:20px;
+  right: 0;
+  top: 0;
+  padding-top: 22px;
+  padding-right: 20px;
   text-align: right;
 }
-.linkContainer{
-  font-family: "open_sansregular",sans-serif;
+
+.linkContainer {
+  font-family: "open_sansregular", sans-serif;
   font-size: 14px;
-  height:21px;
+  height: 21px;
   line-height: 21px;
   text-align: right;
 }
-.linkContainer a{
-  margin-right:8px;
+
+.linkContainer a {
+  margin-right: 8px;
   color: inherit !important;
   font-weight: 400;
 }
-.esriRTL .logoContainer{
-  float:left;
+
+.esriRTL .logoContainer {
+  float: left;
 }
-.logoContainer{
-  height:60px;
-  float:right;
-  margin-top:5px;
-  width:100%;
+
+.logoContainer {
+  height: 60px;
+  float: right;
+  margin-top: 5px;
+  width: 100%;
 }
-.logoWrapper{
-  height:50px;
+
+.logoWrapper {
+  height: 50px;
   vertical-align: middle;
 }
-.logoLink{
-  outline:none;
+
+.logoLink {
+  outline: none;
 }
+
 a {
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
 }
-a:hover{
+
+a:hover {
   text-decoration: underline;
 }
-.logoImg{
+
+.logoImg {
   max-width: 250px;
   max-height: 50px;
 }
-img{
-  border:none;
+
+img {
+  border: none;
   vertical-align: middle;
 }
+
 .shareIcon {
   display: none;
   cursor: pointer;
@@ -211,7 +255,7 @@ img{
   display: inline-block;
 }
 
-.shareBtns > .shareIcon ~ .shareIcon {
+.shareBtns>.shareIcon~.shareIcon {
   margin-left: 4px;
 }
 
@@ -223,7 +267,9 @@ img{
   vertical-align: 1px;
   margin-left: 2px;
 }
-.shareIcon[class^="icon-"]:before, .shareIcon[class*=" icon-"]:before {
+
+.shareIcon[class^="icon-"]:before,
+.shareIcon[class*=" icon-"]:before {
   font-size: 120%;
   margin: 0 !important;
 }
@@ -240,9 +286,10 @@ img{
   display: none;
 }
 
-.dijitTooltipContainer{
+.dijitTooltipContainer {
   font-family: Arial, sans-serif;
 }
+
 #mapDiv {
   padding: 0;
   margin: 0;
@@ -250,56 +297,62 @@ img{
   height: 100%;
 }
 
-#legendCon{
+#legendCon {
   position: absolute;
-  width:300px !important;
-  margin-left:100px;
-  border:none;
+  width: 300px !important;
+  margin-left: 100px;
+  border: none;
   z-index: 100;
 }
-#legendDiv{
+
+#legendDiv {
   font-family: "open_sansregular", sans-serif;
   background: #fff;
   max-height: 410px;
   overflow: auto;
-  padding:10px;
+  padding: 10px;
 }
-@media only screen and (max-device-width:480px){
-  #legendDiv{
-    max-height:300px;
+
+@media only screen and (max-device-width:480px) {
+  #legendDiv {
+    max-height: 300px;
   }
 }
-#legendToggle{
+
+#legendToggle {
   position: relative;
-  margin-top:-1px;
-  width:100%;
-  height:28px;
-  cursor:pointer;
+  margin-top: -1px;
+  width: 100%;
+  height: 28px;
+  cursor: pointer;
   z-index: 100;
 }
-.toggle-icon{
+
+.toggle-icon {
   font-family: "social";
   font-weight: 900;
   position: absolute;
   font-size: 16px;
   line-height: 20px;
-  top:2px;
-  left:5px;
+  top: 2px;
+  left: 5px;
 }
-#legTogText{
+
+#legTogText {
   font-size: 14px;
   line-height: 18px;
   font-family: "open_sansregular", sans-serif;
   position: relative;
-  margin:auto;
-  margin-left:30px;
-  margin-top:0px;
-  padding:5px;
+  margin: auto;
+  margin-left: 30px;
+  margin-top: 0px;
+  padding: 5px;
 }
 
 .esriRTL label {
   /*Example of a rule that will be applied if the app is viewed in a browser with a RTL locale like Hebrew or Arabic.*/
 }
+
 .loading-indicator {
   /* Loading status */
   display: none;
@@ -312,17 +365,20 @@ img{
   overflow: hidden;
   background: #fff;
 }
+
 .app-loading .loading-indicator,
 .app-error .loading-indicator {
   /* Show this class when loading or error */
   display: block;
 }
+
 .app-loading .loading-indicator {
   /* Loading image */
   background-position: center center;
   background-image: url(../images/loader.gif);
   background-repeat: no-repeat;
 }
+
 .app-error .loading-message {
   /* Error status */
   background-position: top center;
@@ -336,19 +392,24 @@ img{
   left: 0;
   text-align: center;
 }
-.calcite .esriPopup .header{
+
+.calcite .esriPopup .header {
   font-size: 12px;
 }
-.calcite .esriPopup a{
-  padding:0;
+
+.calcite .esriPopup a {
+  padding: 0;
 }
+
 .calcite .esriPopup .actionsPane .actionList a {
-    color:#6e6e6e;
-    padding:10px 8px;
+  color: #6e6e6e;
+  padding: 10px 8px;
 }
+
 .calcite .esriPopup .actionsPane .actionList a:hover {
-  color:#323232;
+  color: #323232;
 }
-.calcite .esriPopup .titlePane .title{
+
+.calcite .esriPopup .titlePane .title {
   font-size: 12px;
 }

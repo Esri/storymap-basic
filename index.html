@@ -24,8 +24,8 @@
   <meta property="og:description" content="This story map was created with the Story Map Basic application in ArcGIS Online." />
   <meta property="og:image" content="http://www.arcgis.com/apps/OnePane/storytelling_basic/images/esriGlobeLogow.png" />
 
-  <link rel="stylesheet" href="https://js.arcgis.com/3.26/esri/themes/calcite/dijit/calcite.css">
-  <link rel="stylesheet" href="https://js.arcgis.com/3.26/esri/themes/calcite/esri/esri.css">
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/3.27/esri/themes/calcite/dijit/calcite.css">
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/3.27/esri/themes/calcite/esri/esri.css">
   <!-- Load any application specific styles -->
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -98,8 +98,9 @@
     if (location.search.match(/locale=([\w\-]+)/)) {
       dojoConfig.locale = RegExp.$1;
     }
+
   </script>
-  <script type="text/javascript" src="https://js.arcgis.com/3.26/"></script>
+  <script type="text/javascript" src="https://jsdev.arcgis.com/3.27/"></script>
   <script type="text/javascript">
     require([
       "config/templateConfig",
@@ -127,6 +128,7 @@
         myApp.reportError(error);
       });
     });
+
   </script>
 </body>
 
